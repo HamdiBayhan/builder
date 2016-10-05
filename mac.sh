@@ -57,10 +57,10 @@ fancy_echo "Installing watch, to execute a program periodically and show the out
   brew install watch
 
 ## Rbenv
-fancy_echo "asdasd"
+
 fancy_echo "Installing rbenv, to change Ruby versions ..."
   brew install rbenv
-
+fancy_echo "****"
   if ! grep -qs "rbenv init" ~/.zshrc; then
     echo 'eval "$(rbenv init -)"' >> ~/.zshrc
 
