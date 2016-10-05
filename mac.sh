@@ -88,29 +88,15 @@ fancy_echo "Upgrading and linking OpenSSL ..."
 
 export CC=gcc-4.2
 
-fancy_echo "Configuring Ruby ..."
-find_latest_ruby() {
-  rbenv install -l | grep -v - | tail -1 | sed -e 's/^ *//'
-}
+fancy_echo "Installing Ruby 2.3.1 ..."
+  rbenv install 2.3.1
 
-ruby_version="$(find_latest_ruby)"
-# shellcheck disable=SC2016
-append_to_zshrc 'eval "$(rbenv init - --no-rehash)"' 1
-eval "$(rbenv init -)"
+fancy_echo "Setting Ruby 2.3.1 as global default Ruby ..."
+  rbenv global 2.3.1
+  rbenv rehash
 
-if ! rbenv versions | grep -Fq "$ruby_version"; then
-  RUBY_CONFIGURE_OPTS=--with-openssl-dir=/usr/local/opt/openssl rbenv install -s "$ruby_version"
-fi
+fancy_echo "Updating to latest Rubygems version ..."
+  gem update --system
 
-rbenv global "$ruby_version"
-rbenv shell "$ruby_version"
-gem update --system
-gem_install_or_update 'bundler'
-number_of_cores=$(sysctl -n hw.ncpu)
-bundle config --global jobs $((number_of_cores - 1))
-
-if [ -f "$HOME/.laptop.local" ]; then
-  fancy_echo "Running your customizations from ~/.laptop.local ..."
-  # shellcheck disable=SC1090
-  . "$HOME/.laptop.local"
-fi
+fancy_echo "Installing critical Ruby gems for Rails development ..."
+  gem install bundler pg rails
