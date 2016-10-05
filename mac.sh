@@ -13,6 +13,7 @@ fi
 if [[ ":$PATH:" != *":$HOME/.bin:"* ]]; then
   echo 'export PATH="$HOME/.bin:$PATH"' >> ~/.zshrc
   source ~/.zshrc
+  fancy_echo "1111111111111111111"
 fi
 
 ## Fancy echo
@@ -36,6 +37,7 @@ if ! grep -qs "recommended by brew doctor" ~/.zshrc; then
     echo "\n# recommended by brew doctor" >> ~/.zshrc
     echo "export PATH='/usr/local/bin:$PATH'\n" >> ~/.zshrc
     source ~/.zshrc
+    fancy_echo "22222222222222222222"
 fi
 
 ## Oh my zsh
