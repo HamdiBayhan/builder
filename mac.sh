@@ -13,7 +13,6 @@ fi
 if [[ ":$PATH:" != *":$HOME/.bin:"* ]]; then
   echo 'export PATH="$HOME/.bin:$PATH"' >> ~/.zshrc
   source ~/.zshrc
-  fancy_echo "1111111111111111111"
 fi
 
 ## Fancy echo
