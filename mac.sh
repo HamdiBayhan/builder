@@ -29,7 +29,7 @@ fi
 
 ## Homebrew
 fancy_echo "Installing Homebrew, a good OS X package manager ..."
-  ruby <(curl -fsS https://raw.github.com/mxcl/homebrew/go)
+  ruby <(curl -fsS https://raw.githubusercontent.com/Homebrew/install/master/install)
   brew update
 
 if ! grep -qs "recommended by brew doctor" ~/.zshrc; then
