@@ -69,7 +69,7 @@ fancy_echo "----"
       eval "$(rbenv init -)"
   fi
 fancy_echo "===="
-  
+  source ~/.zshrc
 fancy_echo "&&&&"
 # fancy_echo "Installing rbenv-gem-rehash so the shell automatically picks up binaries after installing gems with binaries..."
 #  brew install rbenv-gem-rehash
