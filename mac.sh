@@ -86,7 +86,7 @@ fancy_echo "Installing GNU Compiler Collection, a necessary prerequisite to inst
 
 fancy_echo "Upgrading and linking OpenSSL ..."
   brew install openssl
-  brew link --overwrite openssl --force
+  brew uninstall openssl098
 export CC=gcc-4.2
 
 fancy_echo "Installing Ruby 2.3.1 ..."
